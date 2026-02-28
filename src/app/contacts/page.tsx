@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 const allContacts = [
   {
     icon: EmailIcon,
-    label: "zisan.dev@gmail.com",
-    href: "mailto:zisan.dev@gmail.com",
+    label: "dewanzisan1@gmail.com",
+    href: "mailto:dewanzisan1@gmail.com",
   },
   {
     icon: GitHubIcon,

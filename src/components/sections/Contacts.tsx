@@ -4,8 +4,8 @@ import { EmailIcon, GitHubIcon, DiscordIcon } from "@/components/icons";
 const contactInfo = [
   {
     icon: EmailIcon,
-    label: "zisan.dev@gmail.com",
-    href: "mailto:zisan.dev@gmail.com",
+    label: "dewanzisan1@gmail.com",
+    href: "mailto:dewanzisan1@gmail.com",
   },
   {
     icon: GitHubIcon,

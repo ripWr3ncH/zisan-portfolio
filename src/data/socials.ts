@@ -7,7 +7,7 @@ export const socials: SocialLink[] = [
 ];
 
 export const contactLinks: SocialLink[] = [
-  { name: "Email", url: "mailto:zisan.dev@gmail.com" },
+  { name: "Email", url: "mailto:dewanzisan1@gmail.com" },
   { name: "GitHub", url: "https://github.com/ripWr3ncH" },
   { name: "Discord", url: "#" },
 ];

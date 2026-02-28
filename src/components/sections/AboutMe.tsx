@@ -14,15 +14,14 @@ export default function AboutMe() {
             Hello, I&apos;m Zisan!
           </p>
           <p className="text-slate-400 text-lg leading-relaxed">
-            I&apos;m a self-taught front-end developer based in Khulna,
-            Bangladesh. I can develop responsive websites from scratch and raise
-            them into modern user-friendly web experiences.
+            I&apos;m currently pursuing BSc in Computer Science &amp; Engineering
+            at KUET. I&apos;m interested in Web Development, Machine Learning,
+            Problem Solving, Microservice and DevOps.
           </p>
           <p className="text-slate-400 text-lg leading-relaxed">
-            Transforming my creativity and knowledge into a website has been my
-            passion for over a year. I have been helping various clients to
-            establish their presence online. I always strive to learn about the
-            newest technologies and frameworks.
+            I can develop responsive websites from scratch and raise them into
+            modern user-friendly web experiences. I always strive to learn about
+            the newest technologies and frameworks.
           </p>
           <a
             href="/about"

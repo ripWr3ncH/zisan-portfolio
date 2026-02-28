@@ -11,7 +11,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Dewan Salman Rahman Zisan | Portfolio",
   description:
-    "CSE student at KUET. I craft responsive websites where technologies meet creativity. Front-end developer based in Khulna, Bangladesh.",
+    "CSE student at KUET. Interested in Web Development, Machine Learning, Problem Solving, Microservice and DevOps.",
   keywords: [
     "portfolio",
     "web developer",
@@ -21,12 +21,14 @@ export const metadata: Metadata = {
     "Next.js",
     "React",
     "TypeScript",
+    "Machine Learning",
+    "DevOps",
   ],
   authors: [{ name: "Dewan Salman Rahman Zisan" }],
   openGraph: {
     title: "Dewan Salman Rahman Zisan | Portfolio",
     description:
-      "CSE student at KUET. I craft responsive websites where technologies meet creativity.",
+      "CSE student at KUET. Interested in Web Development, Machine Learning, Problem Solving, Microservice and DevOps.",
     type: "website",
     locale: "en_US",
   },
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dewan Salman Rahman Zisan | Portfolio",
     description:
-      "CSE student at KUET. I craft responsive websites where technologies meet creativity.",
+      "CSE student at KUET. Interested in Web Development, Machine Learning, Problem Solving, Microservice and DevOps.",
   },
   robots: {
     index: true,
