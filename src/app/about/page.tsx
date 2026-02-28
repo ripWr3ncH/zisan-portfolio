@@ -67,7 +67,7 @@ export default function AboutPage() {
               <div className="relative z-10 border-b-2 border-primary overflow-hidden">
                 <div className="relative aspect-3/4 bg-linear-to-b from-slate-700/30 to-slate-800/60">
                   <Image
-                    src="/images/portrait.svg"
+                    src="/images/profile.jpg"
                     alt="Dewan Salman Rahman Zisan - portrait"
                     fill
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
