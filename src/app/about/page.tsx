@@ -12,7 +12,7 @@ import { funFacts } from "@/data/funFacts";
 export const metadata: Metadata = {
   title: "About Me | Dewan Salman Rahman Zisan",
   description:
-    "Learn about Dewan Salman Rahman Zisan — a self-taught front-end developer based in Khulna, Bangladesh.",
+    "Learn about Dewan Salman Rahman Zisan — CSE student at KUET, developer, tech enthusiast and problem solver.",
 };
 
 function parseBoldText(text: string) {
@@ -86,6 +86,88 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {skills.map((category) => (
               <SkillCard key={category.title} category={category} />
+            ))}
+          </div>
+        </section>
+
+        {/* Education Section */}
+        <section className="py-12">
+          <SectionHeading title="education" />
+          <div className="space-y-6">
+            {[
+              {
+                degree: "BSc in Computer Science & Engineering",
+                institution:
+                  "Khulna University of Engineering & Technology (KUET)",
+                status: "Currently Pursuing",
+              },
+              {
+                degree: "Higher Secondary Certificate (H.S.C)",
+                institution: "Dhaka City College",
+              },
+              {
+                degree: "Secondary School Certificate (S.S.C)",
+                institution: "Joypara Pilot High School",
+              },
+            ].map((edu) => (
+              <div
+                key={edu.degree}
+                className="border border-slate-700 p-6 bg-background/40 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"
+              >
+                <div>
+                  <h3 className="text-slate-100 font-bold text-lg">
+                    {edu.degree}
+                  </h3>
+                  <p className="text-slate-400">{edu.institution}</p>
+                </div>
+                {edu.status && (
+                  <span className="text-primary text-sm font-medium border border-primary px-3 py-1 shrink-0 w-fit">
+                    {edu.status}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Achievements Section */}
+        <section className="py-12">
+          <SectionHeading title="achievements" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              {
+                icon: "🏆",
+                title: "Finalist – BUET CSE Fest Hackathon",
+              },
+              {
+                icon: "💻",
+                title: "Codeforces Pupil",
+                detail: "500+ problems solved in online judges",
+              },
+              {
+                icon: "🎓",
+                title: "Eligible for Dean's List Award",
+                detail: "2nd Year",
+              },
+              {
+                icon: "🥉",
+                title: "3rd Place in HACK Project Showcasing",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="border border-slate-700 p-5 bg-background/40 flex items-start gap-4"
+              >
+                <span className="text-2xl">{item.icon}</span>
+                <div>
+                  <h3 className="text-slate-100 font-bold">{item.title}</h3>
+                  {item.detail && (
+                    <p className="text-slate-400 text-sm mt-1">
+                      {item.detail}
+                    </p>
+                  )}
+                </div>
+              </div>
             ))}
           </div>
         </section>

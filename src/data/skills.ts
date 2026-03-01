@@ -3,22 +3,22 @@ import type { SkillCategory } from "@/types";
 export const skills: SkillCategory[] = [
   {
     title: "Languages",
-    skills: ["TypeScript", "JavaScript", "Python", "C++"],
-  },
-  {
-    title: "Databases",
-    skills: ["MongoDB", "PostgreSQL", "Redis"],
-  },
-  {
-    title: "Tools",
-    skills: ["VS Code", "Git", "Figma", "Docker"],
-  },
-  {
-    title: "Other",
-    skills: ["HTML", "CSS", "REST", "GraphQL"],
+    skills: ["C", "C++", "Python", "Java", "JavaScript"],
   },
   {
     title: "Frameworks",
-    skills: ["React", "Next.js", "Tailwind", "Express"],
+    skills: ["React", "Node.js", "Express", "Laravel", "ASP.NET"],
+  },
+  {
+    title: "Databases",
+    skills: ["MySQL", "Oracle", "PostgreSQL", "Firebase", "Redis"],
+  },
+  {
+    title: "DevOps",
+    skills: ["Docker", "Kafka", "Kubernetes", "Azure"],
+  },
+  {
+    title: "Creative Tools",
+    skills: ["CapCut", "Adobe Premiere Pro"],
   },
 ];

@@ -39,14 +39,16 @@ export default function ProjectsPage() {
         </section>
 
         {/* Small Projects */}
-        <section className="py-12">
-          <SectionHeading title="small-projects" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {smallProjects.map((project) => (
-              <SmallProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        </section>
+        {smallProjects.length > 0 && (
+          <section className="py-12">
+            <SectionHeading title="small-projects" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {smallProjects.map((project) => (
+                <SmallProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </section>
+        )}
       </main>
 
       <Footer />
