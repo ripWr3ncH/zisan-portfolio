@@ -20,10 +20,11 @@ export default function Hero() {
         </p>
         <div className="pt-4">
           <a
-            href="#contacts"
+            href="/resume.pdf"
+            download
             className="inline-block px-8 py-3 border border-primary text-primary hover:bg-primary/10 transition-all font-bold"
           >
-            Contact me!!
+            Download Resume
           </a>
         </div>
       </div>
