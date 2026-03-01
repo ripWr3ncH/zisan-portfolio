@@ -2,8 +2,41 @@
 
 @theme inline {
   --color-primary: #c778dd;
-  --color-background: #282c33;
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-text-primary: var(--text-1);
+  --color-text-secondary: var(--text-2);
+  --color-border: var(--border-color);
   --font-sans: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+}
+
+/* ── Dark theme (default) ───────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --bg: #282c33;
+  --surface: rgba(40, 44, 51, 0.5);
+  --text-1: #e4e6e9;
+  --text-2: #abb2bf;
+  --border-color: #3e4451;
+  --dot-color: #abb2bf;
+  --selection-bg: rgba(199, 120, 221, 0.3);
+  --input-bg: rgba(30, 33, 39, 0.6);
+  --card-hover-shadow: rgba(199, 120, 221, 0.05);
+  color-scheme: dark;
+}
+
+/* ── Light theme ────────────────────────────────────── */
+[data-theme="light"] {
+  --bg: #FFFBF1;
+  --surface: rgba(255, 255, 255, 0.7);
+  --text-1: #1e1e2e;
+  --text-2: #555566;
+  --border-color: #d4d4d8;
+  --dot-color: #9ca3af;
+  --selection-bg: rgba(199, 120, 221, 0.25);
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --card-hover-shadow: rgba(199, 120, 221, 0.1);
+  color-scheme: light;
 }
 
 html {
@@ -11,19 +44,34 @@ html {
 }
 
 body {
-  background-color: #282c33;
-  color: #e4e6e9;
+  background-color: var(--bg);
+  color: var(--text-1);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Dot pattern decoration used across sections */
 .dot-pattern {
-  background-image: radial-gradient(circle, #abb2bf 1px, transparent 1px);
+  background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
 /* Custom selection color */
 ::selection {
-  background-color: rgba(199, 120, 221, 0.3);
+  background-color: var(--selection-bg);
+}
+
+/* Form inputs theme support */
+input,
+textarea {
+  background-color: var(--input-bg);
+  border-color: var(--border-color);
+  color: var(--text-1);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-2);
 }
 
 /* Scroll-reveal animations */

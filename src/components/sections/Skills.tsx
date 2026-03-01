@@ -17,7 +17,7 @@ export default function Skills() {
         {/* Left: Decorative Area */}
         <div className="lg:col-span-2 relative h-full min-h-50 hidden lg:flex items-center justify-center">
           <DotPattern className="absolute top-0 left-0 w-20 h-20 opacity-40" />
-          <div className="w-32 h-32 border border-slate-600" />
+          <div className="w-32 h-32 border border-border" />
           <div className="absolute bottom-0 right-0 w-16 h-16 bg-primary/20 border border-primary/40" />
         </div>
 

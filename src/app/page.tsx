@@ -15,7 +15,7 @@ export default function Home() {
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
       <SidebarSocials />
       <Navbar />
-      <main className="max-w-6xl mx-auto px-6 w-full">
+      <main className="max-w-6xl mx-auto px-6 w-full pt-20">
         <Hero />
         <Quote />
         <Projects />

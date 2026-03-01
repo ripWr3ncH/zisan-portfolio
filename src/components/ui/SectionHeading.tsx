@@ -16,7 +16,7 @@ export default function SectionHeading({
   return (
     <div className={`flex items-center justify-between mb-12 ${className}`}>
       <div className="flex items-center gap-4 flex-1">
-        <h2 className="text-3xl font-bold text-slate-100 shrink-0">
+        <h2 className="text-3xl font-bold text-text-primary shrink-0">
           <span className="text-primary">#</span>
           {title}
         </h2>
@@ -25,7 +25,7 @@ export default function SectionHeading({
       {linkText && linkHref && (
         <Link
           href={linkHref}
-          className="text-slate-100 hover:text-primary transition-colors text-sm whitespace-nowrap ml-4"
+          className="text-text-primary hover:text-primary transition-colors text-sm whitespace-nowrap ml-4"
         >
           {linkText}
         </Link>

@@ -29,16 +29,16 @@ export default function Education() {
         {educationData.map((edu, i) => (
           <div
             key={edu.degree}
-            className={`border border-slate-700 p-6 bg-background/40 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 hover:border-primary/60 hover:-translate-x-1 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 ${
+            className={`border border-border p-6 bg-background/40 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 hover:border-primary/60 hover:-translate-x-1 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 ${
               isInView ? "animate-fade-in-left" : "opacity-0"
             }`}
             style={{ animationDelay: `${i * 150}ms` }}
           >
             <div>
-              <h3 className="text-slate-100 font-bold text-lg">
+              <h3 className="text-text-primary font-bold text-lg">
                 {edu.degree}
               </h3>
-              <p className="text-slate-400">{edu.institution}</p>
+              <p className="text-text-secondary">{edu.institution}</p>
             </div>
             {edu.status && (
               <span className="text-primary text-sm font-medium border border-primary px-3 py-1 shrink-0 w-fit animate-pulse">

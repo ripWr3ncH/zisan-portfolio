@@ -10,15 +10,15 @@ export default function AboutMe() {
       <div className="flex flex-col md:flex-row gap-12 items-center">
         {/* Left: Bio Text */}
         <div className="flex-1 space-y-6">
-          <p className="text-slate-400 text-lg leading-relaxed">
+          <p className="text-text-secondary text-lg leading-relaxed">
             Hello, I&apos;m Zisan!
           </p>
-          <p className="text-slate-400 text-lg leading-relaxed">
+          <p className="text-text-secondary text-lg leading-relaxed">
             I&apos;m currently pursuing BSc in Computer Science &amp; Engineering
             at KUET. I&apos;m interested in Web Development, Machine Learning,
             Problem Solving, Microservice and DevOps.
           </p>
-          <p className="text-slate-400 text-lg leading-relaxed">
+          <p className="text-text-secondary text-lg leading-relaxed">
             I can develop responsive websites from scratch and raise them into
             modern user-friendly web experiences. I always strive to learn about
             the newest technologies and frameworks.
@@ -30,7 +30,7 @@ export default function AboutMe() {
           <DotPattern className="absolute -top-6 left-12 w-20 h-20 opacity-40" />
 
           <div className="relative z-10 border-b-2 border-primary overflow-hidden">
-            <div className="relative aspect-3/4 bg-linear-to-b from-slate-700/30 to-slate-800/60">
+            <div className="relative aspect-3/4 bg-linear-to-b from-border/30 to-background/60">
               <Image
                 src="/images/profile.jpg"
                 alt="Dewan Salman Rahman Zisan - portrait"

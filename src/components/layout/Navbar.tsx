@@ -8,20 +8,24 @@ import {
   LogoIcon,
   GitHubIcon,
   DiscordIcon,
-  FigmaIcon,
+  LinkedInIcon,
   MenuIcon,
   CloseIcon,
+  SunIcon,
+  MoonIcon,
 } from "@/components/icons";
+import { useTheme } from "@/components/ThemeProvider";
 
 const socialIcons: Record<string, React.ElementType> = {
   GitHub: GitHubIcon,
   Discord: DiscordIcon,
-  Figma: FigmaIcon,
+  LinkedIn: LinkedInIcon,
 };
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -39,9 +43,9 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-40 border-b transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 border-b transition-all duration-300 ${
         scrolled
-          ? "border-slate-700/50 bg-background/90 backdrop-blur-md"
+          ? "border-border/50 bg-background/90 backdrop-blur-md"
           : "border-transparent bg-background"
       }`}
     >
@@ -51,7 +55,7 @@ export default function Navbar() {
           <span className="text-primary transition-transform duration-300 group-hover:rotate-12">
             <LogoIcon className="w-6 h-6" />
           </span>
-          <span className="text-slate-100 text-xl font-bold tracking-tight">
+          <span className="text-text-primary text-xl font-bold tracking-tight">
             Zisan
           </span>
         </Link>
@@ -62,22 +66,40 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-slate-400 hover:text-slate-100 transition-colors font-medium"
+              className="text-text-secondary hover:text-text-primary transition-colors font-medium"
             >
               <span className="text-primary">#</span>
               {link.label}
             </a>
           ))}
+
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="text-text-secondary hover:text-primary transition-colors p-1"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+          >
+            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+          </button>
         </nav>
 
         {/* Hamburger Button */}
-        <button
-          onClick={() => setIsOpen(true)}
-          className="md:hidden text-slate-100 p-1"
-          aria-label="Open menu"
-        >
-          <MenuIcon />
-        </button>
+        <div className="flex md:hidden items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="text-text-secondary hover:text-primary transition-colors p-1"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+          >
+            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+          </button>
+          <button
+            onClick={() => setIsOpen(true)}
+            className="text-text-primary p-1"
+            aria-label="Open menu"
+          >
+            <MenuIcon />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -99,13 +121,13 @@ export default function Navbar() {
               <span className="text-primary">
                 <LogoIcon className="w-6 h-6" />
               </span>
-              <span className="text-slate-100 text-xl font-bold tracking-tight">
+              <span className="text-text-primary text-xl font-bold tracking-tight">
                 Zisan
               </span>
             </Link>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-slate-400 hover:text-slate-100 p-1"
+              className="text-text-secondary hover:text-text-primary p-1"
               aria-label="Close menu"
             >
               <CloseIcon />
@@ -119,7 +141,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-2xl font-medium text-slate-100 hover:text-primary transition-colors"
+                className="text-2xl font-medium text-text-primary hover:text-primary transition-colors"
                 style={{ animationDelay: `${i * 50}ms` }}
               >
                 <span className="text-primary">#</span>
@@ -139,7 +161,7 @@ export default function Navbar() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-slate-100 transition-colors"
+                  className="text-text-secondary hover:text-text-primary transition-colors"
                   aria-label={social.name}
                 >
                   <Icon className="w-8 h-8" />

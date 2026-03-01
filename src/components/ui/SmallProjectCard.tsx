@@ -6,13 +6,13 @@ interface SmallProjectCardProps {
 
 export default function SmallProjectCard({ project }: SmallProjectCardProps) {
   return (
-    <article className="border border-slate-700 p-4 flex flex-col justify-between gap-4 bg-background/30">
+    <article className="border border-border p-4 flex flex-col justify-between gap-4 bg-background/30">
       <div className="space-y-2">
-        <div className="text-slate-400 text-sm font-mono">
+        <div className="text-text-secondary text-sm font-mono">
           {project.technologies.join(" ")}
         </div>
-        <h3 className="text-xl font-bold text-slate-100">{project.title}</h3>
-        <p className="text-slate-400 text-sm">{project.description}</p>
+        <h3 className="text-xl font-bold text-text-primary">{project.title}</h3>
+        <p className="text-text-secondary text-sm">{project.description}</p>
       </div>
       <div className="flex gap-4">
         {project.liveUrl && (
@@ -30,7 +30,7 @@ export default function SmallProjectCard({ project }: SmallProjectCardProps) {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-1.5 border border-slate-600 text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors"
+            className="px-4 py-1.5 border border-border text-text-secondary hover:text-text-primary text-sm font-medium transition-colors"
           >
             Github {">="}
           </a>

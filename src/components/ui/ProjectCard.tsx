@@ -7,9 +7,9 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="border border-slate-700 bg-background/30 group">
+    <article className="border border-border bg-background/30 group">
       {/* Project Image */}
-      <div className="aspect-video overflow-hidden border-b border-slate-700 relative bg-linear-to-br from-primary/10 to-slate-800">
+      <div className="aspect-video overflow-hidden border-b border-border relative bg-linear-to-br from-primary/10 to-background">
         {project.image ? (
           <Image
             src={project.image}
@@ -19,21 +19,21 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-slate-600 text-4xl font-bold">
+          <div className="w-full h-full flex items-center justify-center text-text-secondary text-4xl font-bold">
             {project.title.charAt(0)}
           </div>
         )}
       </div>
 
       {/* Tech Tags */}
-      <div className="p-2 border-b border-slate-700 text-slate-400 text-sm font-mono">
+      <div className="p-2 border-b border-border text-text-secondary text-sm font-mono">
         {project.technologies.join(" ")}
       </div>
 
       {/* Content */}
       <div className="p-4 space-y-4">
-        <h3 className="text-2xl font-bold text-slate-100">{project.title}</h3>
-        <p className="text-slate-400">{project.description}</p>
+        <h3 className="text-2xl font-bold text-text-primary">{project.title}</h3>
+        <p className="text-text-secondary">{project.description}</p>
         <div className="flex gap-4">
           {project.liveUrl && (
             <a
@@ -50,7 +50,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-1.5 border border-slate-600 text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors"
+              className="px-4 py-1.5 border border-border text-text-secondary hover:text-text-primary text-sm font-medium transition-colors"
             >
               Github {">="}
             </a>

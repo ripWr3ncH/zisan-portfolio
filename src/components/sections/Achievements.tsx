@@ -1,25 +1,38 @@
 "use client";
 
+import type { SVGProps } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
+import {
+  TrophyIcon,
+  CodeBracketIcon,
+  GradCapIcon,
+  MedalIcon,
+} from "@/components/icons";
 import { useInView } from "@/hooks/useInView";
 
-const achievements = [
+type IconComponent = (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
+
+const achievements: {
+  icon: IconComponent;
+  title: string;
+  detail?: string;
+}[] = [
   {
-    icon: "🏆",
-    title: "Finalist – BUET CSE Fest Hackathon",
+    icon: TrophyIcon,
+    title: "Finalist \u2013 BUET CSE Fest Hackathon",
   },
   {
-    icon: "💻",
+    icon: CodeBracketIcon,
     title: "Codeforces Pupil",
     detail: "500+ problems solved in online judges",
   },
   {
-    icon: "🎓",
-    title: "Eligible for Dean's List Award",
+    icon: GradCapIcon,
+    title: "Eligible for Dean\u2019s List Award",
     detail: "2nd Year",
   },
   {
-    icon: "🥉",
+    icon: MedalIcon,
     title: "3rd Place in HACK Project Showcasing",
   },
 ];
@@ -34,20 +47,18 @@ export default function Achievements() {
         {achievements.map((item, i) => (
           <div
             key={item.title}
-            className={`border border-slate-700 p-5 bg-background/40 flex items-start gap-4 group hover:border-primary/60 hover:-translate-y-1 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 cursor-default ${
+            className={`border border-border p-5 bg-background/40 flex items-start gap-4 group hover:border-primary/60 hover:-translate-y-1 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 cursor-default ${
               isInView ? "animate-fade-in-up" : "opacity-0"
             }`}
             style={{ animationDelay: `${i * 120}ms` }}
           >
-            <span className="text-2xl transition-transform duration-300 group-hover:scale-125">
-              {item.icon}
-            </span>
+            <item.icon className="w-6 h-6 text-primary shrink-0 transition-transform duration-300 group-hover:scale-125" />
             <div>
-              <h3 className="text-slate-100 font-bold group-hover:text-primary transition-colors duration-300">
+              <h3 className="text-text-primary font-bold group-hover:text-primary transition-colors duration-300">
                 {item.title}
               </h3>
               {item.detail && (
-                <p className="text-slate-400 text-sm mt-1">{item.detail}</p>
+                <p className="text-text-secondary text-sm mt-1">{item.detail}</p>
               )}
             </div>
           </div>
