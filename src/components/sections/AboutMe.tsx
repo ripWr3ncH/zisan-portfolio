@@ -23,12 +23,6 @@ export default function AboutMe() {
             modern user-friendly web experiences. I always strive to learn about
             the newest technologies and frameworks.
           </p>
-          <a
-            href="/about"
-            className="inline-block px-6 py-2 border border-primary text-primary hover:bg-primary/10 transition-all font-bold"
-          >
-            Read more -&gt;
-          </a>
         </div>
 
         {/* Right: Portrait Image */}
@@ -36,10 +30,6 @@ export default function AboutMe() {
           <DotPattern className="absolute -top-6 left-12 w-20 h-20 opacity-40" />
 
           <div className="relative z-10 border-b-2 border-primary overflow-hidden">
-            {/*
-              Replace with your actual portrait image.
-              The grayscale filter with hover-to-color effect matches the Figma design.
-            */}
             <div className="relative aspect-3/4 bg-linear-to-b from-slate-700/30 to-slate-800/60">
               <Image
                 src="/images/portrait.svg"
