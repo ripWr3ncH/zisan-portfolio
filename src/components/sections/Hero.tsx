@@ -6,15 +6,14 @@ import DotPattern from "@/components/ui/DotPattern";
 export default function Hero() {
   return (
     <section
-      id="home"
       className="py-16 md:py-24 flex flex-col md:flex-row items-center gap-12"
     >
       {/* Left: Text Content */}
       <div className="flex-1 space-y-8">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-text-primary">
           Zisan is a{" "}
-          <span className="text-primary">web designer</span> and{" "}
-          <span className="text-primary">front-end developer</span>
+          <span className="text-primary">tech enthusiast</span> and{" "}
+          <span className="text-primary"> developer</span>
         </h1>
         <p className="text-text-secondary text-lg max-w-lg">
           {siteConfig.description}
@@ -38,7 +37,7 @@ export default function Hero() {
         <div className="relative z-10 border border-border bg-background/50 overflow-hidden rounded-lg">
           <div className="aspect-square bg-linear-to-br from-primary/20 to-transparent flex items-center justify-center p-8 relative">
             <Image
-              src="/images/apx-profile.png"
+              src="/images/profile-pic.png"
               alt="Portrait photo of Dewan Salman Rahman Zisan"
               fill
               className="object-contain"

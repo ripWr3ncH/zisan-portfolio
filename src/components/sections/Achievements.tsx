@@ -19,7 +19,7 @@ const achievements: {
 }[] = [
   {
     icon: TrophyIcon,
-    title: "Finalist \u2013 BUET CSE Fest Hackathon",
+    title: "2nd Runners Up \u2013 BUET CSE Fest Hackathon",
   },
   {
     icon: CodeBracketIcon,

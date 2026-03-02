@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { navLinks } from "@/data/navigation";
 import { socials } from "@/data/socials";
 import {
@@ -51,14 +50,17 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <a
+          href="#home"
+          className="flex items-center gap-2 group"
+        >
           <span className="text-primary transition-transform duration-300 group-hover:rotate-12">
             <LogoIcon className="w-6 h-6" />
           </span>
           <span className="text-text-primary text-xl font-bold tracking-tight">
             Zisan
           </span>
-        </Link>
+        </a>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
@@ -113,8 +115,8 @@ export default function Navbar() {
         <div className="flex flex-col h-full px-6 py-4">
           {/* Mobile Header */}
           <div className="flex items-center justify-between">
-            <Link
-              href="/"
+            <a
+              href="#home"
               className="flex items-center gap-2"
               onClick={() => setIsOpen(false)}
             >
@@ -124,7 +126,7 @@ export default function Navbar() {
               <span className="text-text-primary text-xl font-bold tracking-tight">
                 Zisan
               </span>
-            </Link>
+            </a>
             <button
               onClick={() => setIsOpen(false)}
               className="text-text-secondary hover:text-text-primary p-1"

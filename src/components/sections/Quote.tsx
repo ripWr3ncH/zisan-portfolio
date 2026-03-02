@@ -1,7 +1,7 @@
 export default function Quote() {
   return (
     <section className="py-12 md:py-16 flex flex-col items-center md:items-end">
-      <div className="relative max-w-xl">
+      <div className="relative max-w-3xl">
         {/* Opening quote mark */}
         <span className="absolute -top-6 -left-2 text-text-secondary text-4xl font-bold select-none">
           &quot;
@@ -9,7 +9,7 @@ export default function Quote() {
 
         {/* Quote text */}
         <blockquote className="border border-border px-8 py-6 text-text-primary text-xl md:text-2xl">
-          With great power comes great electricity bill
+          Code is like humor. When you have to explain it, it’s bad.
         </blockquote>
 
         {/* Closing quote mark */}
@@ -20,7 +20,7 @@ export default function Quote() {
 
       {/* Attribution */}
       <div className="border border-border border-t-0 px-6 py-3 text-text-secondary mr-0 md:mr-8">
-        - Dr. Who
+        - Cory House
       </div>
     </section>
   );

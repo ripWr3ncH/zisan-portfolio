@@ -12,7 +12,7 @@ import Contacts from "@/components/sections/Contacts";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+    <div id="home" className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
       <SidebarSocials />
       <Navbar />
       <main className="max-w-6xl mx-auto px-6 w-full pt-20">

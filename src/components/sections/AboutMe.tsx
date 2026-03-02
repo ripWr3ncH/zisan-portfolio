@@ -29,7 +29,7 @@ export default function AboutMe() {
         <div className="flex-1 relative">
           <DotPattern className="absolute -top-6 left-12 w-20 h-20 opacity-40" />
 
-          <div className="relative z-10 border-b-2 border-primary overflow-hidden">
+          <div className="relative z-10 overflow-hidden">
             <div className="relative aspect-3/4 bg-linear-to-b from-border/30 to-background/60">
               <Image
                 src="/images/profile.jpg"
