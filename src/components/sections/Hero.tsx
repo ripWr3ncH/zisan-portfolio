@@ -94,7 +94,7 @@ export default function Hero() {
 
           <div className="pt-2 opacity-0 animate-fade-in-up [animation-delay:0.45s]">
             <a
-              href="/resume.pdf"
+              href="/dewanzisan_resume.pdf"
               download
               className="btn-hero inline-flex items-center gap-2 px-8 py-3 border border-primary text-primary font-bold relative overflow-hidden"
             >
