@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { navLinks } from "@/data/navigation";
 import { socials } from "@/data/socials";
 import {
-  LogoIcon,
   GitHubIcon,
   DiscordIcon,
   LinkedInIcon,
@@ -24,6 +23,7 @@ const socialIcons: Record<string, React.ElementType> = {
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logoName, setLogoName] = useState<"ZISAN" | "DEWAN">("ZISAN");
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -52,36 +52,51 @@ export default function Navbar() {
         {/* Logo */}
         <a
           href="#home"
-          className="flex items-center gap-2 group"
+          className="flex items-center group cursor-pointer select-none"
+          onClick={(e) => {
+            e.preventDefault();
+            setLogoName((prev) => (prev === "ZISAN" ? "DEWAN" : "ZISAN"));
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
         >
-          <span className="text-primary transition-transform duration-300 group-hover:rotate-12">
-            <LogoIcon className="w-6 h-6" />
+          <span className="text-text-secondary/60 text-xl font-bold">{'{'}</span>
+          <span className="mx-1.5">
+            <span
+              key={logoName}
+              className="text-xl font-bold tracking-widest uppercase animate-logo-swap inline-flex"
+            >
+              <span className="bg-gradient-to-br from-[#a855f7] via-primary to-[#7c3aed] bg-clip-text text-transparent">{logoName[0]}</span>
+              <span className="text-text-primary">{logoName.slice(1)}</span>
+            </span>
           </span>
-          <span className="text-text-primary text-xl font-bold tracking-tight">
-            Zisan
-          </span>
+          <span className="text-text-secondary/60 text-xl font-bold">{'}'}</span>
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop Nav */}        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-text-secondary hover:text-text-primary transition-colors font-medium"
+              className="relative text-text-secondary hover:text-text-primary transition-colors font-medium group"
             >
               <span className="text-primary">#</span>
               {link.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 ease-out group-hover:w-full" />
             </a>
           ))}
 
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="text-text-secondary hover:text-primary transition-colors p-1"
+            className="relative text-text-secondary hover:text-primary p-1 w-8 h-8 flex items-center justify-center overflow-hidden"
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
           >
-            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+            <span
+              key={theme}
+              className="absolute inset-0 flex items-center justify-center animate-theme-icon-in"
+            >
+              {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+            </span>
           </button>
         </nav>
 
@@ -89,10 +104,15 @@ export default function Navbar() {
         <div className="flex md:hidden items-center gap-3">
           <button
             onClick={toggleTheme}
-            className="text-text-secondary hover:text-primary transition-colors p-1"
+            className="relative text-text-secondary hover:text-primary p-1 w-8 h-8 flex items-center justify-center overflow-hidden"
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
           >
-            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+            <span
+              key={theme}
+              className="absolute inset-0 flex items-center justify-center animate-theme-icon-in"
+            >
+              {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+            </span>
           </button>
           <button
             onClick={() => setIsOpen(true)}
@@ -117,15 +137,25 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             <a
               href="#home"
-              className="flex items-center gap-2"
-              onClick={() => setIsOpen(false)}
+              className="flex items-center select-none"
+              onClick={(e) => {
+                e.preventDefault();
+                setLogoName((prev) => (prev === "ZISAN" ? "DEWAN" : "ZISAN"));
+                setIsOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
             >
-              <span className="text-primary">
-                <LogoIcon className="w-6 h-6" />
+              <span className="text-text-secondary/60 text-xl font-bold">{'{'}</span>
+              <span className="mx-1.5">
+                <span
+                  key={logoName}
+                  className="text-xl font-bold tracking-widest uppercase animate-logo-swap inline-flex"
+                >
+                  <span className="bg-gradient-to-br from-[#a855f7] via-primary to-[#7c3aed] bg-clip-text text-transparent">{logoName[0]}</span>
+                  <span className="text-text-primary">{logoName.slice(1)}</span>
+                </span>
               </span>
-              <span className="text-text-primary text-xl font-bold tracking-tight">
-                Zisan
-              </span>
+              <span className="text-text-secondary/60 text-xl font-bold">{'}'}</span>
             </a>
             <button
               onClick={() => setIsOpen(false)}

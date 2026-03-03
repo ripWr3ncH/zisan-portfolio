@@ -3,6 +3,7 @@
 import { useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { EmailIcon, GitHubIcon, DiscordIcon } from "@/components/icons";
+import { useInView } from "@/hooks/useInView";
 
 const contactInfo = [
   {
@@ -30,6 +31,8 @@ export default function Contacts() {
   });
   const [submitted, setSubmitted] = useState(false);
 
+  const { ref: revealRef, isInView } = useInView(0.1);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Open mailto with pre-filled subject and body
@@ -51,7 +54,7 @@ export default function Contacts() {
     <section id="contacts" className="py-20">
       <SectionHeading title="contacts" />
 
-      <div className="flex flex-col lg:flex-row gap-12">
+      <div ref={revealRef} className={`flex flex-col lg:flex-row gap-12 section-reveal ${isInView ? "visible" : ""}`}>
         {/* Left: Message Form */}
         <div className="flex-1">
           <p className="text-text-secondary text-lg mb-8 max-w-md">

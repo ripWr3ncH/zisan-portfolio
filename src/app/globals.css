@@ -119,3 +119,92 @@ textarea::placeholder {
 .animate-scale-in {
   animation: scaleIn 0.5s ease-out both;
 }
+
+/* ── Theme toggle icon animation ─────────────────── */
+@keyframes themeIconIn {
+  0% {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.animate-theme-icon-in {
+  animation: themeIconIn 0.35s ease-out both;
+}
+
+/* ── Logo name swap animation ─────────────────────── */
+@keyframes logoSwap {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-logo-swap {
+  animation: logoSwap 0.3s ease-out both;
+}
+
+/* ── Typed cursor ─────────────────────────────────── */
+.typed-wrapper {
+  display: inline;
+  border-right: 3px solid var(--color-primary, #c778dd);
+  padding-right: 2px;
+  animation: caretBlink 0.8s step-end infinite;
+}
+
+@keyframes caretBlink {
+  0%, 100% { border-color: var(--color-primary, #c778dd); }
+  50%      { border-color: transparent; }
+}
+
+/* ── Hero button fill on hover ────────────────────── */
+.btn-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary, #c778dd);
+  transform: translateX(-101%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-hero:hover { color: var(--bg); }
+.btn-hero:hover::before { transform: translateX(0); }
+
+/* ── Section title line reveal ────────────────────── */
+.section-line {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.section-line.visible {
+  transform: scaleX(1);
+}
+
+/* ── Section reveal on scroll ─────────────────────── */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Project card tilt ────────────────────────────── */
+.project-card-tilt {
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.15s ease-out;
+}
+.project-card-tilt:hover {
+  border-color: var(--color-primary, #c778dd);
+  box-shadow: 0 0 30px rgba(199, 120, 221, 0.08);
+}
