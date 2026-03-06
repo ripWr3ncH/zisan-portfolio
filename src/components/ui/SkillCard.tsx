@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import type { SkillCategory } from "@/types";
 
 interface SkillCardProps {
@@ -14,8 +13,6 @@ export default function SkillCard({
   style,
   className = "",
 }: SkillCardProps) {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-
   return (
     <div
       className={`border border-border hover:border-primary/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 ${className}`}
@@ -24,15 +21,12 @@ export default function SkillCard({
       <div className="p-2 border-b border-border font-bold text-text-primary">
         {category.title}
       </div>
-      <div className="p-2 text-text-secondary flex flex-wrap gap-x-3 gap-y-1 text-sm">
-        {category.skills.map((skill) => (
+      <div className="skill-list p-2 text-text-secondary flex flex-wrap gap-x-3 gap-y-1 text-sm">
+        {category.skills.map((skill, i) => (
           <span
             key={skill}
-            onMouseEnter={() => setHoveredSkill(skill)}
-            onMouseLeave={() => setHoveredSkill(null)}
-            className={`cursor-default transition-colors duration-200 ${
-              hoveredSkill === skill ? "text-primary" : ""
-            }`}
+            className="skill-item cursor-default"
+            style={{ animationDelay: `${i * 55}ms` }}
           >
             {skill}
           </span>

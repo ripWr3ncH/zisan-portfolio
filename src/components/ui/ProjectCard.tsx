@@ -64,9 +64,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-1.5 border border-primary text-primary hover:bg-primary/10 text-sm font-medium transition-colors"
+              className="btn-live relative overflow-hidden flex items-center gap-1.5 px-4 py-1.5 border border-border text-sm font-medium"
             >
-              Live {"<~>"}
+              <span className="relative z-10">Live</span>
+              <span className="btn-live-arrow relative z-10 transition-transform duration-200">{"<~>"}</span>
             </a>
           )}
           {project.githubUrl && (
