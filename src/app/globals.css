@@ -200,6 +200,29 @@ textarea::placeholder {
   transform: translateY(0);
 }
 
+/* ── Github button fill-slide ────────────────────── */
+.btn-github {
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.btn-github::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--border-color);
+  transform: translateX(-101%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-github:hover {
+  color: var(--text-1);
+  border-color: var(--text-1);
+}
+.btn-github:hover::before {
+  transform: translateX(0);
+}
+.btn-github:hover .btn-github-arrow {
+  transform: translateX(4px);
+}
+
 /* ── Project card tilt ────────────────────────────── */
 .project-card-tilt {
   transition: border-color 0.3s, box-shadow 0.3s, transform 0.15s ease-out;
@@ -207,4 +230,10 @@ textarea::placeholder {
 .project-card-tilt:hover {
   border-color: var(--color-primary, #c778dd);
   box-shadow: 0 0 30px rgba(199, 120, 221, 0.08);
+}
+
+/* Equal-height project grid cells */
+.grid > div.section-reveal {
+  display: flex;
+  flex-direction: column;
 }

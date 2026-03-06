@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import type { Project } from "@/types";
+import { GitHubIcon } from "@/components/icons";
 
 interface ProjectCardProps {
   project: Project;
@@ -29,7 +30,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="border border-border bg-background/30 group project-card-tilt cursor-default"
+      className="h-full flex flex-col border border-border bg-background/30 group project-card-tilt cursor-default"
     >
       {/* Project Image */}
       <div className="aspect-video overflow-hidden border-b border-border relative bg-linear-to-br from-primary/10 to-background">
@@ -49,15 +50,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Tech Tags */}
-      <div className="p-2 border-b border-border text-text-secondary text-sm font-mono">
+      <div className="p-2 border-b border-border text-text-secondary text-sm font-mono truncate">
         {project.technologies.join(" ")}
       </div>
 
       {/* Content */}
-      <div className="p-4 space-y-4">
+      <div className="p-4 flex flex-col flex-1 gap-4">
         <h3 className="text-2xl font-bold text-text-primary">{project.title}</h3>
-        <p className="text-text-secondary">{project.description}</p>
-        <div className="flex gap-4">
+        <p className="text-text-secondary line-clamp-3">{project.description}</p>
+        <div className="flex gap-4 mt-auto">
           {project.liveUrl && (
             <a
               href={project.liveUrl}
@@ -73,9 +74,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-1.5 border border-border text-text-secondary hover:text-text-primary text-sm font-medium transition-colors"
+              className="btn-github relative overflow-hidden flex items-center gap-1.5 px-4 py-1.5 border border-border text-text-secondary text-sm font-medium"
             >
-              Github {">="}
+              <GitHubIcon width={14} height={14} className="relative z-10 shrink-0" />
+              <span className="relative z-10">Github</span>
+              <span className="btn-github-arrow relative z-10 transition-transform duration-200">&#x2192;</span>
             </a>
           )}
         </div>

@@ -19,7 +19,7 @@ export default function Projects() {
         {completeApps.map((project, i) => (
           <div
             key={project.id}
-            className={`section-reveal ${isInView ? "visible" : ""}`}
+            className={`section-reveal h-full ${isInView ? "visible" : ""}`}
             style={{ transitionDelay: `${i * 0.1}s` }}
           >
             <ProjectCard project={project} />

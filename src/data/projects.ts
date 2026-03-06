@@ -9,6 +9,7 @@ export const featuredProjects: Project[] = [
       "A football statistics and news platform providing comprehensive football information.",
     technologies: ["PHP", "MySQL", "Laravel"],
     image: "/images/projects/kickoffstats.png",
+    liveUrl: "https://kickoff-stats.onrender.com/",
     githubUrl: "https://github.com/ripWr3ncH/KickOff_Stats.git",
   },
   {
@@ -27,12 +28,32 @@ export const featuredProjects: Project[] = [
       "An e-commerce website providing a seamless online shopping experience.",
     technologies: ["React.js", "Tailwind CSS", "Node.js", "Firebase"],
     image: "/images/projects/shopcircuitbd.png",
+    liveUrl: "https://www.shopcircuit.me/",
     githubUrl: "https://github.com/Nafiz001/ISD-lab-project.git",
   },
 ];
 
 export const completeApps: Project[] = [
   ...featuredProjects,
+  {
+    id: "logarithm-warehouse",
+    title: "FrostByte Logistics",
+    description:
+      "BUET CSE Fest 2026 hackathon-winning microservices and DevOps logistics dashboard with deterministic chaos testing, monitoring, and Azure CI/CD deployment.",
+    technologies: [
+      "Node.js",
+      "PostgreSQL",
+      "Redis",
+      "Nginx",
+      "Docker",
+      "Prometheus",
+      "Grafana",
+      "Azure",
+    ],
+    image: "/images/projects/frostbyte_project.png",
+    liveUrl: "http://40.81.240.99/",
+    githubUrl: "https://github.com/Nafiz001/logarithm-warehouse",
+  },
   {
     id: "smart-car-parking",
     title: "Smart Car Parking System",

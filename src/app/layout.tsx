@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   title: "Dewan Salman Rahman Zisan | Portfolio",
   description:
     "CSE student at KUET. Interested in Web Development, Machine Learning, Problem Solving, Microservice and DevOps.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+  },
   keywords: [
     "portfolio",
     "web developer",
