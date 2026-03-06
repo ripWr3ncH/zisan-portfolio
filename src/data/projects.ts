@@ -51,7 +51,7 @@ export const completeApps: Project[] = [
       "Azure",
     ],
     image: "/images/projects/frostbyte_project.png",
-    liveUrl: "http://40.81.240.99/",
+    liveUrl: "https://logarithm-warehouse.onrender.com/",
     githubUrl: "https://github.com/Nafiz001/logarithm-warehouse",
   },
   {
