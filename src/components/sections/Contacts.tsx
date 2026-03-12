@@ -29,25 +29,46 @@ export default function Contacts() {
     email: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const { ref: revealRef, isInView } = useInView(0.1);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Open mailto with pre-filled subject and body
-    const subject = encodeURIComponent(
-      `Portfolio Contact from ${formData.name}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-    );
-    window.open(
-      `mailto:dewanzisan1@gmail.com?subject=${subject}&body=${body}`,
-      "_blank"
-    );
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "7045b36b-65b3-4505-9184-c456f7d7d145",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Portfolio Contact from ${formData.name}`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+        setErrorMessage(result.message || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error. Please check your connection and try again.");
+    }
   };
 
   return (
@@ -124,10 +145,23 @@ export default function Contacts() {
 
             <button
               type="submit"
-              className="px-8 py-3 border border-primary text-primary hover:bg-primary/10 transition-all font-bold"
+              disabled={status === "loading"}
+              className="px-8 py-3 border border-primary text-primary hover:bg-primary/10 transition-all font-bold disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {submitted ? "Opening mail client..." : "Send Message"}
+              {status === "loading" ? "Sending..." : status === "success" ? "Message Sent!" : "Send Message"}
             </button>
+
+            {status === "success" && (
+              <p className="text-primary text-sm font-medium">
+                ✓ Message sent successfully! I&apos;ll get back to you soon.
+              </p>
+            )}
+            
+            {status === "error" && (
+              <p className="text-red-500 text-sm font-medium">
+                ✗ {errorMessage}
+              </p>
+            )}
           </form>
         </div>
 
