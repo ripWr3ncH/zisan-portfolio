@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #c778dd;
+  --color-primary: var(--primary);
   --color-background: var(--bg);
   --color-surface: var(--surface);
   --color-text-primary: var(--text-1);
@@ -13,6 +13,7 @@
 /* ── Dark theme (default) ───────────────────────────── */
 :root,
 [data-theme="dark"] {
+  --primary: #c778dd;
   --bg: #282c33;
   --surface: rgba(40, 44, 51, 0.5);
   --text-1: #e4e6e9;
@@ -27,7 +28,8 @@
 
 /* ── Light theme ────────────────────────────────────── */
 [data-theme="light"] {
-  --bg: #FFFBF1;
+  --primary: #c778dd;
+  --bg: #eae1e1;
   --surface: rgba(255, 255, 255, 0.7);
   --text-1: #1e1e2e;
   --text-2: #555566;

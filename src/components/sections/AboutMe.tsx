@@ -61,7 +61,7 @@ export default function AboutMe() {
                 src="/images/profile.jpg"
                 alt="Dewan Salman Rahman Zisan - portrait"
                 fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                className="object-cover transition-all duration-600 grayscale-20 hover:grayscale-0"
                 sizes="(max-width: 768px) 100vw, 320px"
               />
             </div>
