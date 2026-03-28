@@ -64,13 +64,14 @@ export const completeApps: Project[] = [
     githubUrl: "https://github.com/ripWr3ncH/Smart-Car-Parking-System-IoT-.git",
   },
   {
-    id: "email-application",
-    title: "Email Application",
+    id: "minionlang-compiler",
+    title: "MinionLang Compiler",
     description:
-      "A lightweight desktop email client with login, inbox, compose, and database-backed account storage.",
-    technologies: ["Java", "JavaFX", "CSS"],
-    image: "/images/projects/emailapplication.png",
-    githubUrl: "https://github.com/ripWr3ncH/EmailApplication.git",
+      "A Flex and Bison based educational compiler with lexical analysis, parsing, semantic checks, IR optimization, and a browser playground.",
+    technologies: ["C", "Flex", "Bison", "GCC", "Vercel"],
+    image: "/images/projects/minionlang.png",
+    liveUrl: "https://minion-lang-compiler.vercel.app/",
+    githubUrl: "https://github.com/ripWr3ncH/MinionLang_Compiler.git",
   },
 ];
 
