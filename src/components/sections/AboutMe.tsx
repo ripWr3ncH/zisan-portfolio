@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import DotPattern from "@/components/ui/DotPattern";
@@ -7,6 +8,20 @@ import { useInView } from "@/hooks/useInView";
 
 export default function AboutMe() {
   const { ref, isInView } = useInView(0.15);
+  const frameRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = frameRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) scale(1.02)`;
+  };
+
+  const handleMouseLeave = () => {
+    if (frameRef.current) frameRef.current.style.transform = "";
+  };
 
   return (
     <section id="about-me" className="py-20">
@@ -34,7 +49,13 @@ export default function AboutMe() {
         <div className="flex-1 relative flex justify-end">
           <DotPattern className="absolute -top-6 left-12 w-20 h-20 opacity-40" />
 
-          <div className={`relative z-10 overflow-hidden max-w-xs w-full section-reveal ${isInView ? "visible" : ""}`} style={{ transitionDelay: "0.3s" }}>
+          <div
+            ref={frameRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            className={`relative z-10 overflow-hidden max-w-xs w-full section-reveal transition-transform duration-300 ease-out ${isInView ? "visible" : ""}`}
+            style={{ transitionDelay: "0.3s" }}
+          >
             <div className="relative aspect-3/4 bg-linear-to-b from-border/30 to-background/60">
               <Image
                 src="/images/profile.jpg"

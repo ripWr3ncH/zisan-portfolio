@@ -9,7 +9,7 @@ import DotPattern from "@/components/ui/DotPattern";
 const typedPhrases = [
   "tech enthusiast",
   "web developer",
-  "ML explorer",
+  "ml explorer",
   "problem solver",
 ];
 
