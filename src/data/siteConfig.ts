@@ -8,5 +8,5 @@ export const siteConfig = {
   email: "dewanzisan1@gmail.com",
   location: "Khulna, Bangladesh",
   url: "https://portfolio-zisan.vercel.app",
-  currentProject: "Portfolio",
+  currentProject: "BalanceLoop",
 };

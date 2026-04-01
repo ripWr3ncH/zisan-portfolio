@@ -6,6 +6,7 @@ import Quote from "@/components/sections/Quote";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 import AboutMe from "@/components/sections/AboutMe";
+import Experience from "@/components/sections/Experience";
 import Education from "@/components/sections/Education";
 import Achievements from "@/components/sections/Achievements";
 import Contacts from "@/components/sections/Contacts";
@@ -21,6 +22,7 @@ export default function Home() {
         <Projects />
         <Skills />
         <AboutMe />
+        <Experience />
         <Education />
         <Achievements />
         <Contacts />
