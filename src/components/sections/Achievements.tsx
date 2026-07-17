@@ -19,7 +19,13 @@ const achievements: {
 }[] = [
   {
     icon: TrophyIcon,
-    title: "2nd Runners Up \u2013 BUET CSE Fest Hackathon 2026",
+    title:
+      "2nd Runners Up \u2013 BUET CSE Fest 2026 Hackathon (Microservices & DevOps)",
+  },
+  {
+    icon: TrophyIcon,
+    title:
+      "2nd Runners Up \u2013 IUT Techathon Nationals & Rover Summit 2026 Hackathon",
   },
   {
     icon: CodeBracketIcon,
