@@ -9,8 +9,8 @@ import { useInView } from "@/hooks/useInView";
 const slideshowPhotos = [
   { src: "/images/achivements/buetcsefest.jpeg", alt: "BUET CSE Fest 2026 Hackathon" },
   { src: "/images/achivements/julyhackathon.jpeg", alt: "July Hackathon 2026 Champions" },
-  { src: "/images/achivements/iuthack.jpeg", alt: "IUT Techathon 2026",rotate: 90 },
-  { src: "/images/achivements/crcertificate.jpeg", alt: "Class Representative Certificate",rotate: 180 },
+  { src: "/images/achivements/iuthack.jpeg", alt: "IUT Techathon 2026",rotate: 270 },
+  { src: "/images/achivements/crcertificate.jpeg", alt: "Class Representative Certificate",rotate: 90, scale: 1.05 },
 ];
 
 export default function AboutMe() {
@@ -105,14 +105,14 @@ export default function AboutMe() {
                 {[...slideshowPhotos, slideshowPhotos[0]].map((photo, i) => (
                   <div
                     key={`${photo.src}-${i}`}
-                    className="relative h-full w-full shrink-0 grow-0 basis-full"
+                    className="relative h-full w-full shrink-0 grow-0 basis-full overflow-hidden"
                   >
                     <div
                       className="absolute inset-0 overflow-hidden"
                       style={
                         photo.rotate
                           ? {
-                              transform: `rotate(${photo.rotate}deg) scale(1.3)`,
+                              transform: `rotate(${photo.rotate}deg) scale(${photo.scale ?? 1.3})`,
                               transformOrigin: "center",
                             }
                           : undefined
