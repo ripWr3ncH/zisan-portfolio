@@ -10,7 +10,7 @@ const slideshowPhotos = [
   { src: "/images/achivements/buetcsefest.jpeg", alt: "BUET CSE Fest 2026 Hackathon" },
   { src: "/images/achivements/julyhackathon.jpeg", alt: "July Hackathon 2026 Champions" },
   { src: "/images/achivements/iuthack.jpeg", alt: "IUT Techathon 2026",rotate: 90 },
-  { src: "/images/achivements/crcertificate.jpeg", alt: "Class Representative Certificate" },
+  { src: "/images/achivements/crcertificate.jpeg", alt: "Class Representative Certificate",rotate: 180 },
 ];
 
 export default function AboutMe() {
