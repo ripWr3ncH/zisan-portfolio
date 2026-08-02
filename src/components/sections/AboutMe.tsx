@@ -9,8 +9,8 @@ import { useInView } from "@/hooks/useInView";
 const slideshowPhotos = [
   { src: "/images/achivements/buetcsefest.jpeg", alt: "BUET CSE Fest 2026 Hackathon" },
   { src: "/images/achivements/julyhackathon.jpeg", alt: "July Hackathon 2026 Champions" },
-  { src: "/images/achivements/iuthack.jpeg", alt: "IUT Techathon 2026",rotate: 270 },
-  { src: "/images/achivements/crcertificate.jpeg", alt: "Class Representative Certificate",rotate: 90, scale: 1.05 },
+  { src: "/images/achivements/iuthack.jpeg", alt: "IUT Techathon 2026",rotate: 90 },
+  { src: "/images/achivements/crcertificate.jpeg", alt: "Class Representative Certificate",rotate: 180, scale: 1.05 },
 ];
 
 export default function AboutMe() {
