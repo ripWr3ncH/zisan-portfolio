@@ -6,7 +6,6 @@ import {
   TrophyIcon,
   CodeBracketIcon,
   GradCapIcon,
-  MedalIcon,
 } from "@/components/icons";
 import { useInView } from "@/hooks/useInView";
 
@@ -17,6 +16,11 @@ const achievements: {
   title: string;
   detail?: string;
 }[] = [
+  {
+    icon: TrophyIcon,
+    title:
+      "Champions \u2013 July Hackathon 2026 (Crisis Tech)",
+  },
   {
     icon: TrophyIcon,
     title:
@@ -38,8 +42,8 @@ const achievements: {
     detail: "2nd Year",
   },
   {
-    icon: MedalIcon,
-    title: "3rd Place in KUET HACK Project Showcasing",
+    icon: TrophyIcon,
+    title: "2nd Runners Up \u2013 KUET HACK Project Showcasing",
   },
 ];
 
