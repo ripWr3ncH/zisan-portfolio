@@ -1,16 +1,6 @@
 import { siteConfig } from "@/data/siteConfig";
-import {
-  LogoIcon,
-  GitHubIcon,
-  DiscordIcon,
-  LinkedInIcon,
-} from "@/components/icons";
-
-const footerSocials = [
-  { icon: GitHubIcon, url: "https://github.com/ripWr3ncH", label: "GitHub" },
-  { icon: DiscordIcon, url: "#", label: "Discord" },
-  { icon: LinkedInIcon, url: "#", label: "LinkedIn" },
-];
+import { navLinks } from "@/data/navigation";
+import { LogoIcon } from "@/components/icons";
 
 export default function Footer() {
   return (
@@ -28,23 +18,21 @@ export default function Footer() {
           <p className="text-text-primary">{siteConfig.tagline}</p>
         </div>
 
-        {/* Right: Media Links */}
+        {/* Right: Quick Navigation */}
         <div className="space-y-4">
-          <h4 className="text-text-primary font-bold text-xl">Media</h4>
-          <div className="flex gap-4">
-            {footerSocials.map((social) => (
+          <h4 className="text-text-primary font-bold text-xl">Navigation</h4>
+          <nav className="flex flex-wrap gap-x-5 gap-y-2 max-w-md">
+            {navLinks.map((link) => (
               <a
-                key={social.label}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-text-secondary hover:text-text-primary transition-colors"
-                aria-label={social.label}
+                key={link.label}
+                href={link.href}
+                className="text-text-secondary hover:text-primary transition-colors"
               >
-                <social.icon className="w-6 h-6" />
+                <span className="text-primary">#</span>
+                {link.label}
               </a>
             ))}
-          </div>
+          </nav>
         </div>
       </div>
 

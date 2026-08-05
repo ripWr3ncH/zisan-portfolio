@@ -19,7 +19,7 @@ const contactInfo = [
   {
     icon: DiscordIcon,
     label: "Discord: zisan",
-    href: "#",
+    href: "https://discord.com/users/rip_wrench",
   },
 ];
 
