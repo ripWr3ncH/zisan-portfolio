@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { navLinks } from "@/data/navigation";
 import { socials } from "@/data/socials";
 import {
@@ -25,6 +26,11 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [logoName, setLogoName] = useState<"ZISAN" | "DEWAN">("ZISAN");
   const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  // Section anchors only resolve on the home page; from a sub-page they
+  // need to route home first.
+  const hrefFor = (href: string) => (isHome ? href : `/${href}`);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -51,9 +57,10 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a
-          href="#home"
+          href={isHome ? "#home" : "/"}
           className="flex items-center group cursor-pointer select-none"
           onClick={(e) => {
+            if (!isHome) return;
             e.preventDefault();
             setLogoName((prev) => (prev === "ZISAN" ? "DEWAN" : "ZISAN"));
             window.scrollTo({ top: 0, behavior: "smooth" });
@@ -76,7 +83,7 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <a
               key={link.label}
-              href={link.href}
+              href={hrefFor(link.href)}
               className="relative text-text-secondary hover:text-text-primary transition-colors font-medium group"
             >
               <span className="text-primary">#</span>
@@ -136,12 +143,13 @@ export default function Navbar() {
           {/* Mobile Header */}
           <div className="flex items-center justify-between">
             <a
-              href="#home"
+              href={isHome ? "#home" : "/"}
               className="flex items-center select-none"
               onClick={(e) => {
+                setIsOpen(false);
+                if (!isHome) return;
                 e.preventDefault();
                 setLogoName((prev) => (prev === "ZISAN" ? "DEWAN" : "ZISAN"));
-                setIsOpen(false);
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             >
@@ -171,7 +179,7 @@ export default function Navbar() {
             {navLinks.map((link, i) => (
               <a
                 key={link.label}
-                href={link.href}
+                href={hrefFor(link.href)}
                 onClick={() => setIsOpen(false)}
                 className="text-2xl font-medium text-text-primary hover:text-primary transition-colors"
                 style={{ animationDelay: `${i * 50}ms` }}

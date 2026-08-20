@@ -1,8 +1,17 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/data/siteConfig";
 import { navLinks } from "@/data/navigation";
 import { LogoIcon } from "@/components/icons";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  // Section anchors only resolve on the home page; from a sub-page they
+  // need to route home first.
+  const hrefFor = (href: string) => (isHome ? href : `/${href}`);
+
   return (
     <footer className="mt-20 border-t border-border py-12 px-6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-8">
@@ -25,7 +34,7 @@ export default function Footer() {
             {navLinks.map((link) => (
               <a
                 key={link.label}
-                href={link.href}
+                href={hrefFor(link.href)}
                 className="text-text-secondary hover:text-primary transition-colors"
               >
                 <span className="text-primary">#</span>
