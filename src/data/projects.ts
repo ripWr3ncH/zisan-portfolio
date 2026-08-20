@@ -1,7 +1,36 @@
 import type { Project } from "@/types";
 
-export const featuredProjects: Project[] = [
-
+/** Every project, in display order. The projects section shows the first
+ *  `FEATURED_COUNT`; the rest live on the /projects page. */
+export const allProjects: Project[] = [
+  {
+    id: "shruti",
+    title: "Shruti",
+    description:
+      "An audio description tool that makes video lessons accessible to blind and low-vision learners.",
+    technologies: ["React.js", "Node.js", "Gemma", "FFmpeg"],
+    image: "/images/projects/Shruti.png",
+    githubUrl: "https://github.com/ripWr3ncH/Shruti",
+  },
+  {
+    id: "balanceloop",
+    title: "BalanceLoop",
+    description:
+      "An offline-first mobile app for splitting expenses and settling balances across friends and groups — fully usable with no network.",
+    technologies: ["React Native", "Expo", "TypeScript", "Supabase"],
+    image: "/images/projects/BalanceLoop.png",
+  },
+  {
+    id: "invigilo",
+    title: "Invigilo",
+    description:
+      "A secure online examination system designed to conduct and monitor exams with integrity.",
+    technologies: ["Electron.js", "PostgreSQL"],
+    image: "/images/projects/secure-examapp.png",
+    liveUrl:
+      "https://github.com/Nafiz001/secure-exam-desktop-app/releases/tag/v1.0.0",
+    githubUrl: "https://github.com/Nafiz001/secure-exam-desktop-app",
+  },
   {
     id: "kickoff-stats",
     title: "KickOff Stats",
@@ -13,15 +42,6 @@ export const featuredProjects: Project[] = [
     githubUrl: "https://github.com/ripWr3ncH/KickOff_Stats.git",
   },
   {
-    id: "invigilo",
-    title: "Invigilo",
-    description:
-      "A secure online examination system designed to conduct and monitor exams with integrity.",
-    technologies: ["Electron.js", "PostgreSQL"],
-    image: "/images/projects/secure-examapp.png",
-    githubUrl: "#",
-  },
-    {
     id: "shopcircuitbd",
     title: "ShopCircuitBD",
     description:
@@ -31,10 +51,6 @@ export const featuredProjects: Project[] = [
     liveUrl: "https://www.shopcircuit.me/",
     githubUrl: "https://github.com/Nafiz001/ISD-lab-project.git",
   },
-];
-
-export const completeApps: Project[] = [
-  ...featuredProjects,
   {
     id: "logarithm-warehouse",
     title: "FrostByte Logistics",
@@ -75,4 +91,7 @@ export const completeApps: Project[] = [
   },
 ];
 
-export const smallProjects: Project[] = [];
+/** How many projects the home page shows before "view all". */
+export const FEATURED_COUNT = 6;
+
+export const featuredProjects: Project[] = allProjects.slice(0, FEATURED_COUNT);
