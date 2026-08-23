@@ -4,15 +4,6 @@ import type { Project } from "@/types";
  *  `FEATURED_COUNT`; the rest live on the /projects page. */
 export const allProjects: Project[] = [
   {
-    id: "shruti",
-    title: "Shruti",
-    description:
-      "An audio description tool that makes video lessons accessible to blind and low-vision learners.",
-    technologies: ["React.js", "Node.js", "Gemma", "FFmpeg"],
-    image: "/images/projects/Shruti.png",
-    githubUrl: "https://github.com/ripWr3ncH/Shruti",
-  },
-  {
     id: "balanceloop",
     title: "BalanceLoop",
     description:
@@ -21,6 +12,15 @@ export const allProjects: Project[] = [
     image: "/images/projects/BalanceLoop.png",
     liveUrl: "https://ripwr3nch.github.io/BalanceLoop/index.html",
     githubUrl: "https://github.com/ripWr3ncH/BalanceLoop",
+  },
+  {
+    id: "shruti",
+    title: "Shruti",
+    description:
+      "An audio description tool that makes video lessons accessible to blind and low-vision learners.",
+    technologies: ["React.js", "Node.js", "Gemma", "FFmpeg"],
+    image: "/images/projects/Shruti.png",
+    githubUrl: "https://github.com/ripWr3ncH/Shruti",
   },
   {
     id: "invigilo",
