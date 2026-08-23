@@ -19,6 +19,8 @@ export const allProjects: Project[] = [
       "An offline-first mobile app for splitting expenses and settling balances across friends and groups — fully usable with no network.",
     technologies: ["React Native", "Expo", "TypeScript", "Supabase"],
     image: "/images/projects/BalanceLoop.png",
+    liveUrl: "https://ripwr3nch.github.io/BalanceLoop/index.html",
+    githubUrl: "https://github.com/ripWr3ncH/BalanceLoop",
   },
   {
     id: "invigilo",
