@@ -7,7 +7,7 @@ export const allProjects: Project[] = [
     id: "balanceloop",
     title: "BalanceLoop",
     description:
-      "An offline-first mobile app for splitting expenses and settling balances across friends and groups — fully usable with no network.",
+      "An offline-first mobile app for splitting expenses and settling balances across friends and groups, fully usable offline.",
     technologies: ["React Native", "Expo", "TypeScript", "Supabase"],
     image: "/images/projects/BalanceLoop.png",
     liveUrl: "https://ripwr3nch.github.io/BalanceLoop/index.html",
@@ -21,6 +21,25 @@ export const allProjects: Project[] = [
     technologies: ["React.js", "Node.js", "Gemma", "FFmpeg"],
     image: "/images/projects/Shruti.png",
     githubUrl: "https://github.com/ripWr3ncH/Shruti",
+  },
+  {
+    id: "nongor",
+    title: "Nongor",
+    description:
+      "An offline crisis companion for Bangladesh floods: mesh SOS, shelter routing and emergency translation.",
+    technologies: ["Kotlin", "Jetpack Compose", "Gemma 4"],
+    image: "/images/projects/nongor.png",
+    liveUrl: "https://youtu.be/9GsZ_ATN0ZQ",
+    githubUrl: "https://github.com/ripWr3ncH/Nongor",
+  },
+  {
+    id: "deenquest",
+    title: "DeenQuest",
+    description:
+      "An Android app for finishing the Quran in daily 5–15 minute sessions, with prayer times and Adhan alerts.",
+    technologies: ["React Native", "Expo", "TypeScript"],
+    image: "/images/projects/deenquest.png",
+    githubUrl: "https://github.com/ripWr3ncH/DeenQuest",
   },
   {
     id: "invigilo",
