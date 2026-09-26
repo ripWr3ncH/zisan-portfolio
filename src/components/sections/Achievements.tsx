@@ -37,13 +37,12 @@ const achievements: {
       "2nd Runners Up \u2013 IUT Techathon Nationals & Rover Summit 2026 Hackathon",
   },
   {
-    icon: CodeBracketIcon,
-    title: "Codeforces Pupil",
-    detail: "500+ problems solved in online judges",
+    icon: TrophyIcon,
+    title: "Finalist \u2013 BCOLBD Blockchain Olympiad 2026",
   },
   {
     icon: TrophyIcon,
-    title: "Finalist \u2013 BCOLBD Blockchain Olympiad 2026",
+    title: "2nd Runners Up \u2013 KUET HACK Project Showcasing",
   },
   {
     icon: GradCapIcon,
@@ -51,8 +50,9 @@ const achievements: {
     detail: "2nd Year",
   },
   {
-    icon: TrophyIcon,
-    title: "2nd Runners Up \u2013 KUET HACK Project Showcasing",
+    icon: CodeBracketIcon,
+    title: "Codeforces Pupil",
+    detail: "500+ problems solved in online judges",
   },
 ];
 
