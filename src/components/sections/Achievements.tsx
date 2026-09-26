@@ -29,12 +29,21 @@ const achievements: {
   {
     icon: TrophyIcon,
     title:
+      "Champions \u2013 Build with Gemma Hybrid Hackathon, Google for Developers",
+  },
+  {
+    icon: TrophyIcon,
+    title:
       "2nd Runners Up \u2013 IUT Techathon Nationals & Rover Summit 2026 Hackathon",
   },
   {
     icon: CodeBracketIcon,
     title: "Codeforces Pupil",
     detail: "500+ problems solved in online judges",
+  },
+  {
+    icon: TrophyIcon,
+    title: "Finalist \u2013 BCOLBD Blockchain Olympiad 2026",
   },
   {
     icon: GradCapIcon,
