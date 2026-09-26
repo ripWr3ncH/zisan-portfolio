@@ -11,7 +11,7 @@ export default function Experience() {
       <SectionHeading title="experience" />
 
       <div
-        className={`border border-border p-6 bg-background/40 hover:border-primary/60 hover:-translate-x-1 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 ${
+        className={`spotlight border border-border p-6 bg-background/40 hover:border-primary/60 hover:-translate-x-1 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 ${
           isInView ? "animate-fade-in-left" : "opacity-0"
         }`}
       >

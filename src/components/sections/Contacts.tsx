@@ -167,7 +167,7 @@ export default function Contacts() {
 
         {/* Right: Contact Card */}
         <div className="lg:w-80">
-          <div className="border border-border p-6 space-y-4 bg-background/40">
+          <div className="spotlight border border-border p-6 space-y-4 bg-background/40">
             <h3 className="text-text-primary font-bold text-lg">
               Or reach me directly
             </h3>

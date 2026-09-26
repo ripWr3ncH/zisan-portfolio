@@ -29,7 +29,7 @@ export default function Education() {
         {educationData.map((edu, i) => (
           <div
             key={edu.degree}
-            className={`border border-border p-6 bg-background/40 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 hover:border-primary/60 hover:-translate-x-1 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 ${
+            className={`spotlight border border-border p-6 bg-background/40 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 hover:border-primary/60 hover:-translate-x-1 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 ${
               isInView ? "animate-fade-in-left" : "opacity-0"
             }`}
             style={{ animationDelay: `${i * 150}ms` }}

@@ -15,7 +15,7 @@ export default function SkillCard({
 }: SkillCardProps) {
   return (
     <div
-      className={`border border-border hover:border-primary/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 ${className}`}
+      className={`spotlight border border-border hover:border-primary/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 ${className}`}
       style={style}
     >
       <div className="p-2 border-b border-border font-bold text-text-primary">

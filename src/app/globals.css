@@ -43,6 +43,7 @@
 
 html {
   scroll-behavior: smooth;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body {
@@ -76,50 +77,50 @@ textarea::placeholder {
   color: var(--text-2);
 }
 
-/* Scroll-reveal animations */
+/* Scroll-reveal animations (with depth: elements rise out of the page plane) */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: perspective(900px) translate3d(0, 28px, -60px) rotateX(10deg);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 
 @keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateX(-24px);
+    transform: perspective(900px) translate3d(-28px, 0, -60px) rotateY(-10deg);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: none;
   }
 }
 
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: perspective(900px) translateZ(-120px) rotateX(14deg) scale(0.94);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: none;
   }
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out both;
+  animation: fadeInUp 0.8s var(--ease-out-expo) both;
 }
 
 .animate-fade-in-left {
-  animation: fadeInLeft 0.6s ease-out both;
+  animation: fadeInLeft 0.8s var(--ease-out-expo) both;
 }
 
 .animate-scale-in {
-  animation: scaleIn 0.5s ease-out both;
+  animation: scaleIn 0.7s var(--ease-out-expo) both;
 }
 
 /* ── Theme toggle icon animation ─────────────────── */
@@ -191,15 +192,29 @@ textarea::placeholder {
   transform: scaleX(1);
 }
 
+/* ── Section heading 3D flip-in ────────────────────── */
+.heading-3d {
+  transform-origin: 50% 100%;
+  opacity: 0;
+  transform: perspective(600px) rotateX(-75deg) translateY(10px);
+  transition: opacity 0.6s ease, transform 0.9s var(--ease-out-expo);
+}
+.heading-3d.visible {
+  opacity: 1;
+  transform: none;
+}
+
 /* ── Section reveal on scroll ─────────────────────── */
 .section-reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: perspective(1000px) translate3d(0, 32px, -80px) rotateX(8deg);
+  filter: blur(6px);
+  transition: opacity 0.8s ease, transform 1s var(--ease-out-expo), filter 0.8s ease;
 }
 .section-reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+  filter: none;
 }
 
 /* ── Project button fill-slide (shared base) ────────── */
@@ -268,15 +283,152 @@ textarea::placeholder {
 
 /* ── Project card tilt ────────────────────────────── */
 .project-card-tilt {
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.15s ease-out;
+  transform-style: preserve-3d;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 .project-card-tilt:hover {
   border-color: var(--color-primary, #c778dd);
-  box-shadow: 0 0 30px rgba(199, 120, 221, 0.08);
+  box-shadow:
+    calc(var(--tilt-x, 0) * -28px) calc(var(--tilt-y, 0) * -28px + 22px) 40px -12px rgba(199, 120, 221, 0.16),
+    0 0 30px rgba(199, 120, 221, 0.08);
+}
+
+/* ── 3D tilt helpers (driven by useTilt CSS variables) ── */
+.tilt-3d {
+  transform-style: preserve-3d;
+}
+/* Pops a child toward the viewer as the parent is hovered. */
+.tilt-layer {
+  transform: translateZ(calc(var(--tilt-h, 0) * var(--depth, 24px)));
+}
+/* Moving specular highlight that tracks the pointer. */
+.tilt-glare {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: var(--tilt-h, 0);
+  background: radial-gradient(
+    circle at calc((var(--tilt-x, 0) + 0.5) * 100%) calc((var(--tilt-y, 0) + 0.5) * 100%),
+    rgba(255, 255, 255, 0.16),
+    rgba(199, 120, 221, 0.07) 35%,
+    transparent 65%
+  );
+}
+.tilt-shadow {
+  box-shadow: calc(var(--tilt-x, 0) * -24px) calc(var(--tilt-y, 0) * -24px + var(--tilt-h, 0) * 18px)
+    40px -14px rgba(199, 120, 221, calc(var(--tilt-h, 0) * 0.18));
+}
+
+/* ── Cursor spotlight on cards ──────────────────────── */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+}
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    280px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(199, 120, 221, 0.12),
+    transparent 70%
+  );
+}
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* ── Hero scroll exit (driven by --hero-p, 0 → 1) ───── */
+.hero-parallax-text {
+  transform: translate3d(0, calc(var(--hero-p, 0) * -70px), 0);
+  opacity: calc(1 - var(--hero-p, 0) * 0.65);
+  will-change: transform, opacity;
+}
+.hero-parallax-visual {
+  transform: perspective(1200px)
+    translate3d(0, calc(var(--hero-p, 0) * -30px), calc(var(--hero-p, 0) * -140px))
+    rotateX(calc(var(--hero-p, 0) * 14deg));
+  opacity: calc(1 - var(--hero-p, 0) * 0.5);
+  will-change: transform, opacity;
+}
+
+/* ── CSS 3D cube (Skills decoration) ────────────────── */
+.cube-scene {
+  perspective: 700px;
+}
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: cubeSpin 28s linear infinite;
+}
+.cube-reverse {
+  animation: cubeSpinReverse 18s linear infinite;
+}
+.cube-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: visible;
+}
+.cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(calc(var(--cube-size) / 2)); }
+.cube-face:nth-child(2) { transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); }
+.cube-face:nth-child(3) { transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2)); }
+.cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+.cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)); }
+.cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+
+@keyframes cubeSpin {
+  from { transform: rotateX(-22deg) rotateY(0deg); }
+  to   { transform: rotateX(-22deg) rotateY(360deg); }
+}
+@keyframes cubeSpinReverse {
+  from { transform: rotateX(28deg) rotateY(360deg) rotateZ(8deg); }
+  to   { transform: rotateX(28deg) rotateY(0deg) rotateZ(8deg); }
 }
 
 /* Equal-height project grid cells */
 .grid > div.section-reveal {
   display: flex;
   flex-direction: column;
+}
+
+/* ── Reduced motion ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .section-reveal,
+  .heading-3d {
+    transform: none;
+    filter: none;
+    transition: opacity 0.4s ease;
+  }
+  .animate-fade-in-up,
+  .animate-fade-in-left,
+  .animate-scale-in {
+    animation-name: fadeOnly;
+  }
+  .cube {
+    animation: none;
+    transform: rotateX(-22deg) rotateY(-32deg);
+  }
+  .cube-reverse {
+    transform: rotateX(28deg) rotateY(40deg) rotateZ(8deg);
+  }
+  .hero-parallax-text,
+  .hero-parallax-visual {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOnly {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
