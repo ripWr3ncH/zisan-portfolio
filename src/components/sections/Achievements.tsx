@@ -57,7 +57,7 @@ export default function Achievements() {
         {achievements.map((item, i) => (
           <div
             key={item.title}
-            className={`border border-border p-5 bg-background/40 flex items-start gap-4 group hover:border-primary/60 hover:-translate-y-1 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 cursor-default ${
+            className={`spotlight border border-border p-5 bg-background/40 flex items-start gap-4 group hover:border-primary/60 hover:-translate-y-1 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 cursor-default ${
               isInView ? "animate-fade-in-up" : "opacity-0"
             }`}
             style={{ animationDelay: `${i * 120}ms` }}

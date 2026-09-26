@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import DotPattern from "@/components/ui/DotPattern";
 import { useInView } from "@/hooks/useInView";
+import { useTilt } from "@/hooks/useTilt";
 
 const slideshowPhotos = [
   { src: "/images/achivements/buetcsefest.jpeg", alt: "BUET CSE Fest 2026 Hackathon" },
@@ -15,7 +16,7 @@ const slideshowPhotos = [
 
 export default function AboutMe() {
   const { ref, isInView } = useInView(0.15);
-  const frameRef = useRef<HTMLDivElement>(null);
+  const frameRef = useTilt<HTMLDivElement>({ max: 6, perspective: 800, scale: 1.02 });
   // `position` drives the slide. We render `slideshowPhotos.length + 1` items,
   // where the last item is a clone of the first. When position === N we are
   // showing the clone, then we instantly snap back to 0 with the transition
@@ -48,19 +49,6 @@ export default function AboutMe() {
     setActiveIndex(position % total);
   }, [position, total]);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = frameRef.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    el.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) scale(1.02)`;
-  };
-
-  const handleMouseLeave = () => {
-    if (frameRef.current) frameRef.current.style.transform = "";
-  };
-
   return (
     <section id="about-me" className="py-20">
       <SectionHeading title="about-me" />
@@ -89,9 +77,7 @@ export default function AboutMe() {
 
           <div
             ref={frameRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            className={`relative z-10 overflow-hidden max-w-md w-full section-reveal transition-transform duration-300 ease-out ${isInView ? "visible" : ""}`}
+            className={`relative z-10 overflow-hidden max-w-md w-full section-reveal tilt-shadow ${isInView ? "visible" : ""}`}
             style={{ transitionDelay: "0.3s" }}
           >
             <div className="relative aspect-4/3 bg-linear-to-b from-border/30 to-background/60 overflow-hidden">
@@ -144,6 +130,7 @@ export default function AboutMe() {
                   />
                 ))}
               </div>
+              <span className="tilt-glare" aria-hidden="true" />
             </div>
           </div>
 

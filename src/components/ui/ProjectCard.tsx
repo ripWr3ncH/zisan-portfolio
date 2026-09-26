@@ -1,36 +1,21 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
 import type { Project } from "@/types";
 import { GitHubIcon } from "@/components/icons";
+import { useTilt } from "@/hooks/useTilt";
 
 interface ProjectCardProps {
   project: Project;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-  const cardRef = useRef<HTMLElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const el = cardRef.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    el.style.transform = `perspective(600px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
-  };
-
-  const handleMouseLeave = () => {
-    if (cardRef.current) cardRef.current.style.transform = "";
-  };
+  const cardRef = useTilt<HTMLElement>({ max: 5, perspective: 900, scale: 1.01, lift: 6 });
 
   return (
     <article
       ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="h-full flex flex-col border border-border bg-background/30 group project-card-tilt cursor-default"
+      className="relative h-full flex flex-col border border-border bg-background/30 group project-card-tilt cursor-default"
     >
       {/* Project Image */}
       <div className="aspect-video overflow-hidden border-b border-border relative bg-linear-to-br from-primary/10 to-background">
@@ -47,15 +32,16 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {project.title.charAt(0)}
           </div>
         )}
+        <span className="tilt-glare" aria-hidden="true" />
       </div>
 
       {/* Tech Tags */}
-      <div className="p-2 border-b border-border text-text-secondary text-sm font-mono truncate">
+      <div className="p-2 border-b border-border text-text-secondary text-sm font-mono truncate tilt-layer [--depth:10px]">
         {project.technologies.join(" ")}
       </div>
 
       {/* Content */}
-      <div className="p-4 flex flex-col flex-1 gap-4">
+      <div className="p-4 flex flex-col flex-1 gap-4 tilt-layer [--depth:22px]">
         <h3 className="text-2xl font-bold text-text-primary">{project.title}</h3>
         <p className="text-text-secondary line-clamp-3">{project.description}</p>
         <div className="flex gap-4 mt-auto">

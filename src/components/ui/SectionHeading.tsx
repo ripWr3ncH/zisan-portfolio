@@ -21,7 +21,7 @@ export default function SectionHeading({
   return (
     <div ref={ref} className={`flex items-center justify-between mb-12 ${className}`}>
       <div className="flex items-center gap-4 flex-1">
-        <h2 className="text-3xl font-bold text-text-primary shrink-0">
+        <h2 className={`text-3xl font-bold text-text-primary shrink-0 heading-3d ${isInView ? "visible" : ""}`}>
           <span className="text-primary">#</span>
           {title}
         </h2>
